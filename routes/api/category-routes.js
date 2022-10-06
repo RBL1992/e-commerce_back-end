@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Category, Product } = require('../../models');
-const { update } = require('../../models/Product');
 
 // The `/api/categories` endpoint
 // find all categories
@@ -51,7 +49,6 @@ router.put('/:id', async (req, res) => {
   try{
   const insert = await Category.update(
     {
-      id: req.body.id,
       category_name: req.body.category_name
     },
     {

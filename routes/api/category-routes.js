@@ -49,6 +49,7 @@ router.put('/:id', async (req, res) => {
   try{
   const insert = await Category.update(
     {
+      id: req.body.id,
       category_name: req.body.category_name
     },
     {

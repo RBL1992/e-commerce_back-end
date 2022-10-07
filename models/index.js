@@ -7,19 +7,19 @@ const ProductTag = require('./ProductTag');
 // association methods to create relationships between models
 // Products belongsTo Category
 Product.belongsTo(Category, {
-  foreignKey: 'category_id',
+  foreignKey: 'Category_id',
 });
 
 // Categories have many Products
 Category.hasMany(Product, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
+  foreignKey: 'Category_id',
 });
 
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, { 
   through: {
     model: ProductTag,
+    foreignKey: 'Product_id',
     unique: false
   }
 });
@@ -28,6 +28,7 @@ Product.belongsToMany(Tag, {
 Tag.belongsToMany(Product, { 
   through: {
     model: ProductTag,
+    foreignKey: 'Tag_id',
     unique: false
   }
 });

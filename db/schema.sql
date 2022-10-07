@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS ecommerce_db;
 CREATE DATABASE ecommerce_db;
 
 USE ecommerce_db;
@@ -27,8 +28,8 @@ CREATE TABLE productTag (
   product_id INT,
   tag_id INT,
   FOREIGN KEY (product_id)
- REFERENCES product(id),
- ON DELETE SET NULL
+ REFERENCES product(id)
+ ON DELETE SET NULL,
  FOREIGN KEY (tag_id)
  REFERENCES tag(id)
  ON DELETE SET NULL
